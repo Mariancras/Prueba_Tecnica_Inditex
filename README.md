@@ -110,7 +110,7 @@ git clone https://github.com/Mariancras/Prueba_Tecnica_Inditex.git
 2. Ubicarse en el directorio del proyecto:
 
 ```bash
-cd PRUEBA_TECNICA_MERLIN_INDITEX
+cd Prueba_Tecnica_Inditex
 ```
 
 3. Instalar las dependencias necesarias del proyecto:
