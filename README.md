@@ -104,7 +104,7 @@ npm install -g newman-reporter-htmlextra
 1. Clona este repositorio en tu local: (si no tienes git instalado deberás descargarlo y descomprimirlo)
 
 ```bash
-git clone https://github.com/Mariancras/PRUEBA_TECNICA_INDITEX.git
+git clone https://github.com/Mariancras/Prueba_Tecnica_Inditex.git
 ```
 
 2. Ubicarse en el directorio del proyecto:
@@ -125,14 +125,14 @@ npm install
 
 Se recomienda ejecutar las pruebas con la interfaz gráfica de cypress para poder seleccionar el navegador, puede hacerse con:
 
-En consola, dentro del directorio PRUEBA_TECNICA_INDITEX:
+En consola, dentro del directorio Prueba_Tecnica_Inditex:
 ```bash
 npx cypress open
 ```
 
 También puede realizar los test de formas headless cpn el Browser Electron 118 con el comando:
 
-En consola, dentro del directorio PRUEBA_TECNICA_INDITEX:
+En consola, dentro del directorio Prueba_Tecnica_Inditex:
 ```bash
 npm test
 ```
@@ -142,7 +142,7 @@ npm test
 
 Para ejecutar los test con Newman:
 
-En consola, dentro del directorio PRUEBA_TECNICA_INDITEX ingreso a la carpeta Ejercicio 3:
+En consola, dentro del directorio Prueba_Tecnica_Inditex ingreso a la carpeta Ejercicio 3:
 ```bash
 cd Ejercicio_3
 ```
