@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "969c537e-9b26-4ff1-bd4b-5ccf01982707",
+		"name": "Ejercicio 3 Tratamiento de datos en APIs",
+		"description": "Respuesta al punto 1.3 de la prueba tecnica propuesta por Merlin Software/Inditex.\n\nConsigna:  \n1.3 Ejercicio 3: Tratamiento de datos en APIs  \nEn este enlace encontrarás la documentación de la API de una tienda de mascotas:  \n[https://petstore.swagger.io/](https://petstore.swagger.io/)\n\n1. Crea tu usuario mediante petición HTTP y posteriormente recupera sus datos llamando al  \n    servicio correspondiente.\n    \n2. Recoge mediante petición HTTP, el JSON que retorna el endpoint /pet/findByStatus y lista mediante una función los nombres de las mascotas que se hayan vendido.\n    \n\n- El formato de salida deberá estar formado por la tupla {id, name}. - Puedes utilizar la  \n    estructura de datos que prefieras.\n    \n\n1. Crea una clase cuyo constructor requiera de la estructura de datos anterior y realiza un método que pueda recorrerla para poder identificar cuantas mascotas se llaman igual.\n    \n\n- Ejemplo de salida: {“William”: 11, “ Floyd”: 2} Como output, te pediremos el código (puedes  \n    separarlo en archivos como quieras) y los resultados de salida de los puntos anteriores.\n    \n- Recuerda que puedes utilizar el lenguaje que prefieras y cualquier mejora adicional será bien considerada",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27193893"
+	},
+	"item": [
+		{
+			"name": "Crear Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Punto 1.3.1 creacion\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{{user}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{urlPetstore}}/user",
+					"host": [
+						"{{urlPetstore}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Punto 1.3.1 obtencion de usuario creado\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The user returned is the same as the one sent\", function () {\r",
+							"    const user = pm.environment.get(\"user\"); //obtengo la variable de ambiente\r",
+							"    pm.expect(pm.response.json()).to.eql(JSON.parse(user)); //parseo user y luego comparo\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlPetstore}}/user/Mariancras",
+					"host": [
+						"{{urlPetstore}}"
+					],
+					"path": [
+						"user",
+						"Mariancras"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mascotas Vendidas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Punto 1.3.2\r",
+							"\r",
+							"let responseJSON = pm.response.json();\r",
+							"let listPetsSold = [];\r",
+							"\r",
+							"console.log('Mascotas vendidas:');\r",
+							"responseJSON.forEach(pet => {\r",
+							"    console.log(`ID: ${pet.id}, Nombre: ${pet.name}`); //muestro por consola\r",
+							"    listPetsSold.push({ id: pet.id, name: pet.name }); //guardo en una lista\r",
+							"});\r",
+							"\r",
+							"//guardo la lista en una variable de la coleccion:\r",
+							"pm.collectionVariables.set(\"listPetsSold\", JSON.stringify(listPetsSold));\r",
+							"\r",
+							"\r",
+							"//Punto 1.3.3. \r",
+							"\r",
+							"class ContadorDeMascotas {\r",
+							"            //al crear una instancia puedo definir la lista de mascotas como la propiedad mascotas del objeto de clase ContadoDeMascotas\r",
+							"        constructor(mascota) {\r",
+							"        this.mascotas = mascota;\r",
+							"    }\r",
+							"\r",
+							"            //metodo que cuenta la cantidad de veces que se repite cada nombre\r",
+							"        contarOcurrenciasDeNombres() {\r",
+							"        let nombresContados = {};\r",
+							"\r",
+							"        for (let item of this.mascotas) {\r",
+							"            let nombre = item.name;\r",
+							"            if (nombresContados[nombre]) {\r",
+							"                nombresContados[nombre]++;\r",
+							"            } else {\r",
+							"                nombresContados[nombre] = 1;\r",
+							"            }\r",
+							"        }\r",
+							"        return nombresContados;\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"let contadorMascotas = new ContadorDeMascotas(listPetsSold); //instancio un objeto de la clase ContadorDeMascotas\r",
+							"\r",
+							"let ocurrenciasDeNombres = contadorMascotas.contarOcurrenciasDeNombres(); //ejecuto el metodo del objeto instanciado\r",
+							"\r",
+							"// muestro por consola:\r",
+							"console.log(\"Ocurrencias de nombres de mascotas:\");\r",
+							"console.log(ocurrenciasDeNombres);\r",
+							"\r",
+							"console.log(\"Total de mascotas:\");\r",
+							"console.log(listPetsSold.length);\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlPetstore}}/pet/findByStatus?status=sold",
+					"host": [
+						"{{urlPetstore}}"
+					],
+					"path": [
+						"pet",
+						"findByStatus"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "sold"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "listPetsSold",
+			"value": ""
+		}
+	]
+}

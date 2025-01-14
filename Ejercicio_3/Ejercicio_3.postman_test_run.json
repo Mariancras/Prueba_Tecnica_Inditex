@@ -1,0 +1,121 @@
+{
+	"id": "ca8875ac-ddff-4a47-ac55-18876b2b7e1a",
+	"name": "Ejercicio 3 Tratamiento de datos en APIs",
+	"timestamp": "2025-01-13T18:04:31.593Z",
+	"collection_id": "27193893-969c537e-9b26-4ff1-bd4b-5ccf01982707",
+	"folder_id": 0,
+	"environment_id": "27193893-caa31826-d21c-4e69-834d-3d1c2fab13a7",
+	"totalPass": 4,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-01-13T18:04:30.333Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "87a4b9b1-a15d-4cf6-a502-4b327c43d84f",
+			"name": "Crear Usuario",
+			"url": "https://petstore.swagger.io/v2/user",
+			"time": 484,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				484
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "ebad2708-dd83-48c3-b2f3-6b0a7c6bb095",
+			"name": "Obtener Usuario",
+			"url": "https://petstore.swagger.io/v2/user/Mariancras",
+			"time": 113,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"The user returned is the same as the one sent": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"The user returned is the same as the one sent": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				113
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"The user returned is the same as the one sent": true
+				}
+			]
+		},
+		{
+			"id": "485cad1a-5817-4bb1-a11f-baeb5f3d9e51",
+			"name": "Mascotas Vendidas",
+			"url": "https://petstore.swagger.io/v2/pet/findByStatus?status=sold",
+			"time": 114,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				114
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 711,
+	"collection": {
+		"requests": [
+			{
+				"id": "87a4b9b1-a15d-4cf6-a502-4b327c43d84f",
+				"method": "POST"
+			},
+			{
+				"id": "ebad2708-dd83-48c3-b2f3-6b0a7c6bb095",
+				"method": "GET"
+			},
+			{
+				"id": "485cad1a-5817-4bb1-a11f-baeb5f3d9e51",
+				"method": "GET"
+			}
+		]
+	}
+}

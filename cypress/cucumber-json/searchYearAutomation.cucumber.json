@@ -1,0 +1,62 @@
+[
+  {
+    "description": "As a web user, I want to search on Google to resolve my doubts.",
+    "keyword": "Feature",
+    "name": "Automatic Search on Google",
+    "line": 1,
+    "id": "automatic-search-on-google",
+    "tags": [],
+    "uri": "searchYearAutomation.feature",
+    "elements": [
+      {
+        "id": "automatic-search-on-google;i-am-looking-for-the-year-in-which-the-first-automation-was-carried-out",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "I am looking for the year in which the first automation was carried out",
+        "tags": [
+          {
+            "name": "@search",
+            "line": 10
+          },
+          {
+            "name": "@wikipedia",
+            "line": 10
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I am in the wikipedia automation result",
+            "result": {
+              "status": "passed",
+              "duration": 17336000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I look for the year in which the first automatic process was carried out",
+            "result": {
+              "status": "passed",
+              "duration": 78000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "it should show me the year in which the first automation was carried out",
+            "result": {
+              "status": "passed",
+              "duration": 1338000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

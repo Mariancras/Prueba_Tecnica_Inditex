@@ -1,0 +1,42 @@
+{
+    "auth": {
+        "username": "marianomarasco_rZ82kQ",
+        "access_key": "BcwaeTzsaMpzxS2H7zVz"
+    },
+    "browsers": [
+        {
+            "browser": "chrome",
+            "os": "OS X Monterey",
+            "versions": [
+                "latest"
+            ]
+        },
+        {
+            "browser": "edge",
+            "os": "Windows 11",
+            "versions": [
+                "latest"
+            ]
+        }
+    
+    ],
+    "run_settings": {
+        "cypress_config_file": "./cypress.config.js",
+        "project_name": "Prueba_tecnica_inditex",
+        "build_name": "test 1",
+        "exclude": [],
+        "parallels": "2",
+        "npm_dependencies": {
+            "cypress-cucumber-preprocessor": "^4.3.1"
+        },
+        "package_config_options": {},
+        "headless": true
+    },
+    "connection_settings": {
+        "local": false,
+        "local_identifier": null,
+        "local_mode": null,
+        "local_config_file": null
+    },
+    "disable_usage_reporting": false
+}
